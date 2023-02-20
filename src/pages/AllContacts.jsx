@@ -15,13 +15,11 @@ const AllContacts = () => {
      return ( 
           <div className="h-auto w-full grid grid-cols-4 gap-2 my-10">
                {
+                    // display contacts in a card format
                     contacts.map((contact) => (
                          <ContactCard key={contact.id} contact={contact}/>
                     ))
                }
-               {/* <ContactCard />
-               <ContactCard />
-               <ContactCard /> */}
           </div>
       );
 }

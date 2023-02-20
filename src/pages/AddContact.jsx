@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 const AddContact = () => {
      const navigate = useNavigate();
 
+     // create form with formik
      const formik = useFormik({
           initialValues: {
                id:Math.floor(Math.random() * 1001),
@@ -15,9 +16,9 @@ const AddContact = () => {
           },
           onSubmit: values => {
                alert(JSON.stringify(values, null, 2))
-               const existingContacts = JSON.parse(localStorage.getItem('contact')) || []
-               const newContacts = [...existingContacts, values]
-               localStorage.setItem('contact', JSON.stringify(newContacts))
+               const existingContacts = JSON.parse(localStorage.getItem('contact')) || [] //check if the contact array exists in local host and get it, otherwise use a new array
+               const newContacts = [...existingContacts, values] // add the object value for the contacts to the array
+               localStorage.setItem('contact', JSON.stringify(newContacts)) // store the updated array in local storage
                navigate("/allContacts");
           }
      })

@@ -1,31 +1,46 @@
 import { BrowserRouter, useRoutes } from "react-router-dom";
 import Home from "./pages/Home";
-import Dashboard from "./pages/Dashboard";
-import Settings from "./pages/Settings";
 import Navbar from "./components/Navbar";
+import Sidebar from "./components/Sidebar";
+import Layout from "./pages/Layout";
+import AddContact from "./pages/AddContact";
+import AllContacts from "./pages/AllContacts";
+import ContactDetails from "./pages/ContactDetails";
 
-// import routes from "./routes/routes"
 
 function App() {
      const routes = useRoutes([
           {
                path: "/",
-               element: <Home />,
+               element: <Layout />,
                children: [
                     {
-                         path: "dashboard",
-                         element: <Dashboard />,
+                         path: "",
+                         element: <Home />
+                    },
+                    {
+                         path: "allcontacts",
+                         element: <AllContacts />,
+                    },
+                    {
+                         path: "allcontacts/:id",
+                         element: <ContactDetails />,
                     },
                ],
           },
           {
-               path: "/settings",
-               element: <Settings />,
+               path: "/addcontact",
+               element: <AddContact />,
           },
+          {
+               path: "/*",
+               // element: <Home />
+          }
      ]);
      return (
-          <div className="w-screen m-0">
-               <Navbar />
+          <div className="w-full h-screen m-0 flex lg:p-2">
+               {/* <Navbar /> */}
+               <Sidebar />
                { routes }
           </div>
      );

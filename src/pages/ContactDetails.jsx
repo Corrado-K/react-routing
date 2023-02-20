@@ -13,6 +13,8 @@ const ContactDetails = () => {
      useEffect(() => {
           let isContact = JSON.parse(localStorage.getItem('contact'))
           if(isContact){
+               // check if a contact in the array of contacts has the same id as the id given as a route parameter
+               // this might not be the most efficient way ... needs fix
                for (let index = 0; index < isContact.length; index++) {
                     let element = isContact[index];
                     console.log(element);
@@ -23,8 +25,6 @@ const ContactDetails = () => {
                }
           }
      }, []);
-
-     // console.log(contact);
 
 
      return (

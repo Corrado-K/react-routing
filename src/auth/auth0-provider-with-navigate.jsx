@@ -5,8 +5,8 @@ import { useNavigate } from "react-router-dom";
 export const Auth0ProviderWithNavigate = ({children}) => {
      const navigate = useNavigate();
 
-     const domain = 'dev-ngpgiqh74ixly17p.us.auth0.com';
-     const clientId = 'BbjuUtAugbnoBoFf4eXekhFxL6yRH2Ed';
+     const domain = '';
+     const clientId = '';
      const redirectUri = 'http://localhost:5173/callback';
 
      const onRedirectCallback = (appState) => {

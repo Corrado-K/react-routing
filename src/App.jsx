@@ -6,6 +6,9 @@ import Layout from "./pages/Layout";
 import AddContact from "./pages/AddContact";
 import AllContacts from "./pages/AllContacts";
 import ContactDetails from "./pages/ContactDetails";
+import Login from "./pages/Login";
+import { useAuth0 } from "@auth0/auth0-react";
+import Callback from "./pages/Callback";
 
 
 function App() {
@@ -26,23 +29,40 @@ function App() {
                          path: "allcontacts/:id",
                          element: <ContactDetails />,
                     },
+                    {
+                         path: "/addcontact",
+                         element: <AddContact />,
+                    },
                ],
           },
           {
-               path: "/addcontact",
-               element: <AddContact />,
+               path: "/login",
+               element: <Login />,
+          },
+          {
+               path: "/callback",
+               element: <Callback />,
           },
           {
                path: "/*",
                // element: <Home />
           }
      ]);
+
+     const { isLoading } = useAuth0()
+     if(isLoading) {
+          return (
+               <div>
+                    Loading...
+               </div>
+          )
+     }
+
      return (
-          <div className="w-full h-screen m-0 flex lg:p-2">
-               {/* <Navbar /> */}
-               <Sidebar />
+          <div>
                { routes }
           </div>
+               
      );
 }
 

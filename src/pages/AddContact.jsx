@@ -25,10 +25,7 @@ const AddContact = () => {
 
 
      return ( 
-          <div className="h-full w-[85%] px-20 py-8 border ml-2 lg:rounded-[40px]">
-               <h2 className="text-lg font-semibold text-black">Add Contact</h2>
-
-               <div className="h-auto my-10">
+          <div className="h-auto my-10">
                <form className="space-y-5" onSubmit={formik.handleSubmit}>
                     <div className="grid grid-cols-2 space-x-2">
                          <input
@@ -80,7 +77,6 @@ const AddContact = () => {
                          <button className="px-5 py-3 bg-[#061922] hover:bg-[#134a63] text-white rounded-lg" type="submit">Submit</button>
                     </div>
                </form>
-               </div>
           </div>
       );
 }
